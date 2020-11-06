@@ -1,0 +1,65 @@
+#!/bin/bash
+
+N=$(nproc --all)
+REPEAT=1
+
+DATA="data/br5851.tsp"
+ACOTSP="ACOTSP-1.03/acotsp"
+RESULTS="results"
+
+PASSO_A=0.5
+PASSO_B=1
+PASSO_P=0.25
+
+ALPHA=($(seq 0.5 $PASSO_A 2))
+BETA=($(seq 1 $PASSO_B 4))
+RHO=($(seq 0.25 $PASSO_P 1))
+
+total=$((${#ALPHA[@]} * ${#BETA[@]} * ${#RHO[@]}))
+list=($(seq -w 01 $total))
+
+echo "Possible values:"
+echo "alpha = ${ALPHA[@]}"
+echo "beta = ${BETA[@]}"
+echo -e "rho = ${RHO[@]} \n"
+
+# Termina todos os processos se o principal for interrompido
+trap 'jobs -p | xargs kill > /dev/null 2>&1' EXIT
+
+if [ -d results ]; then
+	# Remove resultados antigos
+	rm -rf results/*
+else
+	mkdir results
+fi
+
+j=0
+
+for try in {1..$REPEAT}; do
+
+	i=0
+
+	for a in ${ALPHA[@]}; do
+		for b in ${BETA[@]}; do
+			for p in ${RHO[@]}; do
+				output=$RESULTS/${list[i]}
+
+				# Roda o experimento paralelamente em batches de N processos
+				((k=k%N)); ((k++==0)) && wait && ((j+=1)) && echo -e "\nBatch $j"
+
+				if [ "$try" -eq "1" ]; then
+					echo "alpha=$a beta=$b rho=$p" >> $output
+				fi
+
+				echo "Running for alpha=$a beta=$b rho=$p"
+				./$ACOTSP -i $DATA -a $a -b $b -e $p -t 120 --quiet >> $output &
+
+				((i+=1))
+			done
+		done
+	done
+done
+
+wait
+
+echo -e "\nAll done!"

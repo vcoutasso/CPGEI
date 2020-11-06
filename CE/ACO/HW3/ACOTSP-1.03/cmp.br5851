@@ -1,0 +1,111 @@
+
+ACO algorithms for the TSP, v1.03
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 10.00
+seed		 1597694027
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 1.00
+beta			 2.00
+rho			 0.20
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+begin problem ../data/br5851.tsp
+seed 1597694027
+begin try 0 
+best 153732	 iteration 1	 tours 27	 time 1.775
+best 153357	 iteration 6	 tours 152	 time 4.625
+best 152670	 iteration 7	 tours 177	 time 5.185
+end try 0
+
+seed 901207686
+begin try 1 
+best 154040	 iteration 1	 tours 27	 time 1.623
+best 153627	 iteration 5	 tours 127	 time 3.896
+best 153449	 iteration 9	 tours 227	 time 6.081
+best 153440	 iteration 16	 tours 402	 time 9.645
+best 152619	 iteration 17	 tours 427	 time 10.012
+end try 1
+
+seed 1072249755
+begin try 2 
+best 153808	 iteration 1	 tours 27	 time 1.649
+best 153724	 iteration 2	 tours 52	 time 2.319
+best 153600	 iteration 5	 tours 127	 time 4.135
+best 153486	 iteration 10	 tours 252	 time 7.132
+best 152719	 iteration 11	 tours 277	 time 7.708
+end try 2
+
+seed 478343807
+begin try 3 
+best 153656	 iteration 1	 tours 27	 time 1.652
+best 153164	 iteration 3	 tours 77	 time 2.836
+best 152830	 iteration 12	 tours 302	 time 8.098
+end try 3
+
+seed 931908373
+begin try 4 
+best 154103	 iteration 1	 tours 27	 time 1.718
+best 153930	 iteration 2	 tours 52	 time 2.293
+best 153862	 iteration 3	 tours 77	 time 2.899
+best 153676	 iteration 4	 tours 102	 time 3.482
+best 153596	 iteration 8	 tours 202	 time 5.797
+best 153357	 iteration 9	 tours 227	 time 6.375
+best 152772	 iteration 10	 tours 252	 time 6.909
+end try 4
+
+seed 1579631148
+begin try 5 
+best 154134	 iteration 1	 tours 27	 time 1.656
+best 153828	 iteration 2	 tours 52	 time 2.260
+best 153602	 iteration 3	 tours 77	 time 2.845
+best 153198	 iteration 4	 tours 102	 time 3.412
+best 153006	 iteration 13	 tours 327	 time 8.507
+end try 5
+
+seed 1917073839
+begin try 6 
+best 153761	 iteration 1	 tours 27	 time 1.639
+best 153534	 iteration 2	 tours 52	 time 2.223
+best 153481	 iteration 15	 tours 377	 time 9.730
+end try 6
+
+seed 1252588337
+begin try 7 
+best 154326	 iteration 1	 tours 27	 time 1.600
+best 153664	 iteration 2	 tours 52	 time 2.179
+best 153467	 iteration 5	 tours 127	 time 3.874
+best 153453	 iteration 14	 tours 352	 time 8.802
+end try 7
+
+seed 2095562104
+begin try 8 
+best 153032	 iteration 1	 tours 27	 time 1.606
+best 152748	 iteration 13	 tours 327	 time 8.327
+end try 8
+
+seed 1287782002
+begin try 9 
+best 153994	 iteration 1	 tours 27	 time 1.653
+best 153685	 iteration 2	 tours 52	 time 2.240
+best 153214	 iteration 3	 tours 77	 time 2.827
+best 152740	 iteration 12	 tours 302	 time 7.816
+end try 9
+
+end problem br5851

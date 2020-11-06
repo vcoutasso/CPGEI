@@ -1,0 +1,7 @@
+graph {
+	0 [label=sub]
+	1 [label=rsi]
+	2 [label=wma]
+	0 -- 1
+	0 -- 2
+}

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+res_dir=results
+rep=10
+
+for file in $(ls $res_dir); do
+	tmp=0
+	best=0
+	results=($(grep "Best Solution in try" $res_dir/$file | awk '{ print $NF }'))
+
+	for v in ${results[@]}; do
+		((tmp+=v))
+		if [ "0" -eq "$best" ]; then
+			best=$v
+		fi
+		if [ "$v" -lt "$best" ]; then
+			best=$v
+		fi
+	done
+
+	((tmp/=rep))
+	head -n 1 $res_dir/$file
+	echo "media: $tmp melhor: $best"
+done
+
+

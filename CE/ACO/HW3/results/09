@@ -1,0 +1,1537 @@
+alpha=0.5 beta=3 rho=0.25
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597720233
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597720233
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8364080000 seconds
+best 154416, iteration: 1, time 18.49
+best 153672, iteration: 2, time 25.34
+best 153631, iteration: 3, time 32.19
+best 153441, iteration: 6, time 52.41
+best 153343, iteration: 10, time 78.98
+best 152680, iteration: 16, time 117.75
+
+ Best Solution in try 0 is 152680
+ Best Solution was found after 16 iterations
+
+try 0, Best 152680, found at iteration 16, found at time 117.731336
+best 154048, iteration: 1, time 16.72
+best 153614, iteration: 2, time 23.54
+best 153068, iteration: 5, time 43.98
+best 152986, iteration: 15, time 110.56
+
+ Best Solution in try 1 is 152986
+ Best Solution was found after 15 iterations
+
+try 1, Best 152986, found at iteration 15, found at time 110.536149
+best 153858, iteration: 1, time 17.42
+best 153799, iteration: 3, time 31.48
+best 153599, iteration: 8, time 65.87
+best 153349, iteration: 13, time 99.40
+best 153255, iteration: 16, time 119.00
+
+ Best Solution in try 2 is 153255
+ Best Solution was found after 16 iterations
+
+try 2, Best 153255, found at iteration 16, found at time 118.981220
+best 153951, iteration: 1, time 17.28
+best 153575, iteration: 5, time 45.11
+best 153231, iteration: 10, time 78.54
+best 153211, iteration: 13, time 98.02
+
+ Best Solution in try 3 is 153211
+ Best Solution was found after 13 iterations
+
+try 3, Best 153211, found at iteration 13, found at time 98.003364
+best 154144, iteration: 1, time 16.43
+best 153574, iteration: 5, time 43.59
+best 153473, iteration: 8, time 63.68
+best 153420, iteration: 12, time 89.94
+best 153055, iteration: 16, time 115.70
+
+ Best Solution in try 4 is 153055
+ Best Solution was found after 16 iterations
+
+try 4, Best 153055, found at iteration 16, found at time 115.682377
+best 154187, iteration: 1, time 16.93
+best 153321, iteration: 2, time 23.75
+best 152564, iteration: 13, time 96.86
+
+ Best Solution in try 5 is 152564
+ Best Solution was found after 13 iterations
+
+try 5, Best 152564, found at iteration 13, found at time 96.834731
+best 153630, iteration: 1, time 17.16
+best 153373, iteration: 5, time 44.57
+best 153074, iteration: 14, time 104.08
+
+ Best Solution in try 6 is 153074
+ Best Solution was found after 14 iterations
+
+try 6, Best 153074, found at iteration 14, found at time 104.062023
+best 153838, iteration: 1, time 17.54
+best 153174, iteration: 2, time 24.58
+
+ Best Solution in try 7 is 153174
+ Best Solution was found after 2 iterations
+
+try 7, Best 153174, found at iteration 2, found at time 24.562769
+best 154051, iteration: 1, time 17.06
+best 153567, iteration: 3, time 30.81
+best 153534, iteration: 5, time 44.49
+best 153401, iteration: 7, time 58.01
+best 153281, iteration: 11, time 84.59
+best 153062, iteration: 12, time 91.14
+
+ Best Solution in try 8 is 153062
+ Best Solution was found after 12 iterations
+
+try 8, Best 153062, found at iteration 12, found at time 91.115793
+best 154058, iteration: 1, time 17.20
+best 153803, iteration: 4, time 37.77
+best 153320, iteration: 6, time 51.34
+best 153005, iteration: 10, time 77.95
+best 152874, iteration: 13, time 97.49
+
+ Best Solution in try 9 is 152874
+ Best Solution was found after 13 iterations
+
+try 9, Best 152874, found at iteration 13, found at time 97.468137
+ t_avgbest = 97.497790
+ t_avgtotal = 120.438838
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597723898
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597723898
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8930800000 seconds
+best 153650, iteration: 1, time 18.63
+best 153646, iteration: 8, time 66.56
+best 153578, iteration: 10, time 79.92
+best 153159, iteration: 12, time 93.15
+best 152371, iteration: 16, time 119.10
+
+ Best Solution in try 0 is 152371
+ Best Solution was found after 16 iterations
+
+try 0, Best 152371, found at iteration 16, found at time 119.076289
+best 153671, iteration: 1, time 15.49
+best 153169, iteration: 8, time 63.37
+best 153058, iteration: 17, time 120.06
+
+ Best Solution in try 1 is 153058
+ Best Solution was found after 17 iterations
+
+try 1, Best 153058, found at iteration 17, found at time 120.044190
+best 154241, iteration: 1, time 15.48
+best 154195, iteration: 2, time 22.46
+best 153712, iteration: 3, time 29.43
+best 153636, iteration: 4, time 36.35
+best 153405, iteration: 10, time 76.67
+best 152951, iteration: 11, time 83.30
+best 152549, iteration: 12, time 89.82
+
+ Best Solution in try 2 is 152549
+ Best Solution was found after 12 iterations
+
+try 2, Best 152549, found at iteration 12, found at time 89.803282
+best 153404, iteration: 1, time 17.04
+best 153286, iteration: 3, time 31.20
+
+ Best Solution in try 3 is 153286
+ Best Solution was found after 3 iterations
+
+try 3, Best 153286, found at iteration 3, found at time 31.181601
+best 153687, iteration: 1, time 16.98
+best 153585, iteration: 2, time 24.08
+best 153511, iteration: 5, time 45.16
+best 153144, iteration: 6, time 52.12
+best 153006, iteration: 8, time 66.02
+
+ Best Solution in try 4 is 153006
+ Best Solution was found after 8 iterations
+
+try 4, Best 153006, found at iteration 8, found at time 65.994243
+best 153608, iteration: 1, time 16.89
+best 153561, iteration: 12, time 92.80
+best 153422, iteration: 13, time 99.48
+best 153022, iteration: 14, time 106.12
+
+ Best Solution in try 5 is 153022
+ Best Solution was found after 14 iterations
+
+try 5, Best 153022, found at iteration 14, found at time 106.092970
+best 154613, iteration: 1, time 15.96
+best 153614, iteration: 2, time 23.04
+best 153086, iteration: 10, time 78.41
+
+ Best Solution in try 6 is 153086
+ Best Solution was found after 10 iterations
+
+try 6, Best 153086, found at iteration 10, found at time 78.386801
+best 155246, iteration: 1, time 15.79
+best 153891, iteration: 2, time 22.89
+best 152870, iteration: 4, time 36.88
+
+ Best Solution in try 7 is 152870
+ Best Solution was found after 4 iterations
+
+try 7, Best 152870, found at iteration 4, found at time 36.860994
+best 154022, iteration: 1, time 15.85
+best 153484, iteration: 2, time 22.90
+best 153259, iteration: 6, time 50.66
+
+ Best Solution in try 8 is 153259
+ Best Solution was found after 6 iterations
+
+try 8, Best 153259, found at iteration 6, found at time 50.637048
+best 153970, iteration: 1, time 15.87
+best 153491, iteration: 2, time 22.91
+best 153239, iteration: 7, time 57.58
+best 153036, iteration: 12, time 91.39
+best 152936, iteration: 16, time 117.71
+best 152620, iteration: 17, time 120.06
+
+ Best Solution in try 9 is 152620
+ Best Solution was found after 17 iterations
+
+try 9, Best 152620, found at iteration 17, found at time 120.049223
+ t_avgbest = 81.812664
+ t_avgtotal = 120.552196
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597726341
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597726341
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8359460000 seconds
+best 154460, iteration: 1, time 18.31
+best 154305, iteration: 3, time 32.01
+best 153517, iteration: 4, time 38.87
+best 153221, iteration: 5, time 45.74
+
+ Best Solution in try 0 is 153221
+ Best Solution was found after 5 iterations
+
+try 0, Best 153221, found at iteration 5, found at time 45.722388
+best 154184, iteration: 1, time 16.61
+best 154007, iteration: 2, time 23.46
+best 154003, iteration: 3, time 30.33
+best 153398, iteration: 4, time 37.21
+best 153370, iteration: 13, time 96.93
+best 153112, iteration: 14, time 103.42
+
+ Best Solution in try 1 is 153112
+ Best Solution was found after 14 iterations
+
+try 1, Best 153112, found at iteration 14, found at time 103.395318
+best 153341, iteration: 1, time 16.21
+best 153166, iteration: 15, time 109.23
+
+ Best Solution in try 2 is 153166
+ Best Solution was found after 15 iterations
+
+try 2, Best 153166, found at iteration 15, found at time 109.212446
+best 154175, iteration: 1, time 16.69
+best 153613, iteration: 2, time 23.56
+best 153582, iteration: 3, time 30.35
+best 153552, iteration: 4, time 37.17
+best 153426, iteration: 7, time 57.50
+best 153287, iteration: 11, time 83.95
+best 153284, iteration: 14, time 103.42
+best 153224, iteration: 17, time 120.05
+
+ Best Solution in try 3 is 153224
+ Best Solution was found after 17 iterations
+
+try 3, Best 153224, found at iteration 17, found at time 120.025374
+best 153527, iteration: 1, time 16.60
+best 153268, iteration: 6, time 50.44
+best 153151, iteration: 12, time 90.08
+best 152622, iteration: 13, time 96.61
+
+ Best Solution in try 4 is 152622
+ Best Solution was found after 13 iterations
+
+try 4, Best 152622, found at iteration 13, found at time 96.592305
+best 153643, iteration: 1, time 16.26
+best 153596, iteration: 4, time 36.75
+best 153583, iteration: 6, time 50.33
+best 153571, iteration: 8, time 63.70
+best 153196, iteration: 9, time 70.46
+best 153061, iteration: 16, time 115.84
+best 152888, iteration: 17, time 120.03
+
+ Best Solution in try 5 is 152888
+ Best Solution was found after 17 iterations
+
+try 5, Best 152888, found at iteration 17, found at time 120.011798
+best 153832, iteration: 1, time 15.84
+best 153488, iteration: 2, time 22.71
+best 153171, iteration: 3, time 29.56
+best 153118, iteration: 10, time 76.41
+best 152832, iteration: 15, time 108.57
+
+ Best Solution in try 6 is 152832
+ Best Solution was found after 15 iterations
+
+try 6, Best 152832, found at iteration 15, found at time 108.554840
+best 154598, iteration: 1, time 15.97
+best 154365, iteration: 2, time 22.84
+best 153408, iteration: 3, time 29.75
+best 153222, iteration: 12, time 89.50
+best 153013, iteration: 17, time 120.07
+
+ Best Solution in try 7 is 153013
+ Best Solution was found after 17 iterations
+
+try 7, Best 153013, found at iteration 17, found at time 120.052346
+best 153823, iteration: 1, time 15.90
+best 153760, iteration: 3, time 29.63
+best 153560, iteration: 6, time 49.88
+best 153369, iteration: 9, time 69.63
+best 153105, iteration: 10, time 76.13
+
+ Best Solution in try 8 is 153105
+ Best Solution was found after 10 iterations
+
+try 8, Best 153105, found at iteration 10, found at time 76.108707
+best 153847, iteration: 1, time 16.22
+best 153624, iteration: 2, time 23.18
+best 153561, iteration: 8, time 64.35
+best 153356, iteration: 13, time 97.68
+
+ Best Solution in try 9 is 153356
+ Best Solution was found after 13 iterations
+
+try 9, Best 153356, found at iteration 13, found at time 97.657563
+ t_avgbest = 99.733308
+ t_avgtotal = 120.405904
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597730005
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597730005
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8370350000 seconds
+best 154285, iteration: 1, time 17.31
+best 154161, iteration: 4, time 37.19
+best 153960, iteration: 6, time 50.26
+best 153596, iteration: 7, time 56.71
+best 153417, iteration: 10, time 75.96
+best 153085, iteration: 16, time 113.47
+
+ Best Solution in try 0 is 153085
+ Best Solution was found after 16 iterations
+
+try 0, Best 153085, found at iteration 16, found at time 113.447703
+best 154451, iteration: 1, time 15.20
+best 154115, iteration: 2, time 21.88
+best 154049, iteration: 3, time 28.49
+best 153688, iteration: 5, time 41.64
+best 153252, iteration: 6, time 48.23
+best 152945, iteration: 13, time 93.46
+best 152412, iteration: 17, time 118.71
+
+ Best Solution in try 1 is 152412
+ Best Solution was found after 17 iterations
+
+try 1, Best 152412, found at iteration 17, found at time 118.686614
+best 153268, iteration: 1, time 15.63
+best 153212, iteration: 6, time 49.20
+best 152917, iteration: 12, time 88.41
+
+ Best Solution in try 2 is 152917
+ Best Solution was found after 12 iterations
+
+try 2, Best 152917, found at iteration 12, found at time 88.392716
+best 153543, iteration: 1, time 15.75
+best 153453, iteration: 5, time 42.70
+best 152514, iteration: 11, time 82.20
+best 152396, iteration: 13, time 95.14
+
+ Best Solution in try 3 is 152396
+ Best Solution was found after 13 iterations
+
+try 3, Best 152396, found at iteration 13, found at time 95.122088
+best 154044, iteration: 1, time 16.33
+best 153177, iteration: 4, time 36.58
+best 153125, iteration: 6, time 50.04
+
+ Best Solution in try 4 is 153125
+ Best Solution was found after 6 iterations
+
+try 4, Best 153125, found at iteration 6, found at time 50.015975
+best 154083, iteration: 1, time 15.75
+best 153960, iteration: 2, time 22.57
+best 153803, iteration: 3, time 29.33
+best 153323, iteration: 6, time 49.53
+best 152973, iteration: 17, time 120.24
+
+ Best Solution in try 5 is 152973
+ Best Solution was found after 17 iterations
+
+try 5, Best 152973, found at iteration 17, found at time 120.218309
+best 154017, iteration: 1, time 17.03
+best 153449, iteration: 4, time 37.87
+best 153380, iteration: 7, time 58.57
+best 153370, iteration: 9, time 72.15
+best 152462, iteration: 16, time 118.54
+
+ Best Solution in try 6 is 152462
+ Best Solution was found after 16 iterations
+
+try 6, Best 152462, found at iteration 16, found at time 118.518714
+best 153928, iteration: 1, time 17.43
+best 153604, iteration: 2, time 24.42
+best 153461, iteration: 6, time 51.81
+best 153408, iteration: 9, time 72.11
+
+ Best Solution in try 7 is 153408
+ Best Solution was found after 9 iterations
+
+try 7, Best 153408, found at iteration 9, found at time 72.092910
+best 153712, iteration: 1, time 17.26
+best 153183, iteration: 5, time 44.88
+best 153058, iteration: 6, time 51.70
+best 153034, iteration: 15, time 111.41
+
+ Best Solution in try 8 is 153034
+ Best Solution was found after 15 iterations
+
+try 8, Best 153034, found at iteration 15, found at time 111.389242
+best 154321, iteration: 1, time 17.49
+best 154080, iteration: 2, time 24.44
+best 153872, iteration: 3, time 31.28
+best 153770, iteration: 8, time 65.25
+best 153371, iteration: 10, time 78.51
+
+ Best Solution in try 9 is 153371
+ Best Solution was found after 10 iterations
+
+try 9, Best 153371, found at iteration 10, found at time 78.489873
+ t_avgbest = 96.637414
+ t_avgtotal = 120.542302
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597733667
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597733667
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8432700000 seconds
+best 153517, iteration: 1, time 18.99
+best 153240, iteration: 3, time 32.60
+best 153055, iteration: 12, time 92.38
+
+ Best Solution in try 0 is 153055
+ Best Solution was found after 12 iterations
+
+try 0, Best 153055, found at iteration 12, found at time 92.355229
+best 153360, iteration: 1, time 17.13
+best 153328, iteration: 2, time 24.04
+best 153063, iteration: 3, time 30.83
+best 153045, iteration: 11, time 84.26
+
+ Best Solution in try 1 is 153045
+ Best Solution was found after 11 iterations
+
+try 1, Best 153045, found at iteration 11, found at time 84.244495
+best 153975, iteration: 1, time 17.10
+best 153864, iteration: 2, time 24.08
+best 153739, iteration: 4, time 37.89
+best 153503, iteration: 5, time 44.75
+best 153403, iteration: 6, time 51.50
+best 153342, iteration: 12, time 91.55
+
+ Best Solution in try 2 is 153342
+ Best Solution was found after 12 iterations
+
+try 2, Best 153342, found at iteration 12, found at time 91.528687
+best 153761, iteration: 1, time 16.41
+best 153599, iteration: 2, time 23.36
+best 153411, iteration: 14, time 103.71
+best 153265, iteration: 16, time 116.66
+
+ Best Solution in try 3 is 153265
+ Best Solution was found after 16 iterations
+
+try 3, Best 153265, found at iteration 16, found at time 116.640124
+best 153075, iteration: 1, time 16.33
+
+ Best Solution in try 4 is 153075
+ Best Solution was found after 1 iterations
+
+try 4, Best 153075, found at iteration 1, found at time 16.305346
+best 154671, iteration: 1, time 16.28
+best 153673, iteration: 2, time 23.21
+best 153461, iteration: 10, time 77.43
+best 152961, iteration: 11, time 83.97
+
+ Best Solution in try 5 is 152961
+ Best Solution was found after 11 iterations
+
+try 5, Best 152961, found at iteration 11, found at time 83.948270
+best 154239, iteration: 1, time 16.29
+best 153021, iteration: 3, time 30.07
+best 152944, iteration: 8, time 64.06
+best 152699, iteration: 15, time 110.08
+
+ Best Solution in try 6 is 152699
+ Best Solution was found after 15 iterations
+
+try 6, Best 152699, found at iteration 15, found at time 110.062069
+best 153450, iteration: 1, time 16.40
+best 153327, iteration: 8, time 64.12
+best 152788, iteration: 16, time 116.58
+
+ Best Solution in try 7 is 152788
+ Best Solution was found after 16 iterations
+
+try 7, Best 152788, found at iteration 16, found at time 116.558405
+best 153777, iteration: 1, time 16.32
+best 153600, iteration: 3, time 30.19
+best 153565, iteration: 9, time 70.95
+best 153087, iteration: 11, time 84.18
+
+ Best Solution in try 8 is 153087
+ Best Solution was found after 11 iterations
+
+try 8, Best 153087, found at iteration 11, found at time 84.164456
+best 154187, iteration: 1, time 16.24
+best 153819, iteration: 2, time 23.18
+best 153520, iteration: 4, time 36.90
+best 153091, iteration: 10, time 77.49
+
+ Best Solution in try 9 is 153091
+ Best Solution was found after 10 iterations
+
+try 9, Best 153091, found at iteration 10, found at time 77.468761
+ t_avgbest = 87.327584
+ t_avgtotal = 120.427289
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597736109
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597736109
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8353940000 seconds
+best 154291, iteration: 1, time 18.65
+best 153554, iteration: 2, time 25.55
+best 153436, iteration: 5, time 45.90
+best 153205, iteration: 14, time 105.41
+
+ Best Solution in try 0 is 153205
+ Best Solution was found after 14 iterations
+
+try 0, Best 153205, found at iteration 14, found at time 105.388386
+best 154044, iteration: 1, time 16.97
+best 153617, iteration: 2, time 23.93
+best 153585, iteration: 9, time 71.02
+best 153438, iteration: 11, time 84.19
+best 153104, iteration: 12, time 90.77
+best 153056, iteration: 15, time 110.23
+best 153036, iteration: 16, time 116.59
+
+ Best Solution in try 1 is 153036
+ Best Solution was found after 16 iterations
+
+try 1, Best 153036, found at iteration 16, found at time 116.569203
+best 153923, iteration: 1, time 16.71
+best 153906, iteration: 2, time 23.64
+best 153138, iteration: 4, time 37.21
+best 152731, iteration: 12, time 90.39
+
+ Best Solution in try 2 is 152731
+ Best Solution was found after 12 iterations
+
+try 2, Best 152731, found at iteration 12, found at time 90.370527
+best 153665, iteration: 1, time 16.69
+best 153605, iteration: 7, time 57.70
+best 153358, iteration: 11, time 84.42
+
+ Best Solution in try 3 is 153358
+ Best Solution was found after 11 iterations
+
+try 3, Best 153358, found at iteration 11, found at time 84.393723
+best 153634, iteration: 1, time 16.96
+best 153440, iteration: 3, time 30.99
+best 153225, iteration: 9, time 71.83
+best 153149, iteration: 11, time 85.28
+best 153109, iteration: 13, time 98.40
+best 152827, iteration: 15, time 111.24
+
+ Best Solution in try 4 is 152827
+ Best Solution was found after 15 iterations
+
+try 4, Best 152827, found at iteration 15, found at time 111.215450
+best 153945, iteration: 1, time 16.63
+best 153625, iteration: 2, time 23.50
+best 153385, iteration: 6, time 50.62
+best 153140, iteration: 11, time 84.47
+best 152913, iteration: 13, time 97.39
+best 152861, iteration: 14, time 103.79
+best 152677, iteration: 17, time 120.19
+
+ Best Solution in try 5 is 152677
+ Best Solution was found after 17 iterations
+
+try 5, Best 152677, found at iteration 17, found at time 120.163477
+best 154007, iteration: 1, time 16.35
+best 153613, iteration: 9, time 70.35
+best 153611, iteration: 13, time 96.35
+best 153454, iteration: 17, time 120.09
+
+ Best Solution in try 6 is 153454
+ Best Solution was found after 17 iterations
+
+try 6, Best 153454, found at iteration 17, found at time 120.074359
+best 154132, iteration: 1, time 16.31
+best 153460, iteration: 2, time 23.19
+best 153396, iteration: 3, time 30.05
+best 153113, iteration: 4, time 36.96
+best 153110, iteration: 8, time 64.09
+best 152942, iteration: 15, time 110.13
+
+ Best Solution in try 7 is 152942
+ Best Solution was found after 15 iterations
+
+try 7, Best 152942, found at iteration 15, found at time 110.103237
+best 154330, iteration: 1, time 16.26
+best 152725, iteration: 2, time 23.25
+
+ Best Solution in try 8 is 152725
+ Best Solution was found after 2 iterations
+
+try 8, Best 152725, found at iteration 2, found at time 23.228012
+best 154330, iteration: 1, time 16.27
+best 153537, iteration: 2, time 23.25
+best 153480, iteration: 4, time 36.88
+best 152822, iteration: 6, time 50.60
+best 152739, iteration: 16, time 116.19
+
+ Best Solution in try 9 is 152739
+ Best Solution was found after 16 iterations
+
+try 9, Best 152739, found at iteration 16, found at time 116.172019
+ t_avgbest = 99.767839
+ t_avgtotal = 120.435265
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597739771
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597739771
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8499620000 seconds
+best 154039, iteration: 1, time 17.27
+best 153182, iteration: 3, time 31.19
+
+ Best Solution in try 0 is 153182
+ Best Solution was found after 3 iterations
+
+try 0, Best 153182, found at iteration 3, found at time 31.169828
+best 154078, iteration: 1, time 15.33
+best 153862, iteration: 2, time 22.27
+best 153741, iteration: 5, time 42.90
+best 153364, iteration: 6, time 49.66
+best 153246, iteration: 9, time 69.83
+
+ Best Solution in try 1 is 153246
+ Best Solution was found after 9 iterations
+
+try 1, Best 153246, found at iteration 9, found at time 69.813892
+best 154300, iteration: 1, time 15.65
+best 153521, iteration: 3, time 29.40
+best 153294, iteration: 9, time 70.66
+best 153178, iteration: 12, time 90.76
+best 152981, iteration: 13, time 97.40
+
+ Best Solution in try 2 is 152981
+ Best Solution was found after 13 iterations
+
+try 2, Best 152981, found at iteration 13, found at time 97.381348
+best 153362, iteration: 1, time 15.71
+best 153138, iteration: 6, time 50.46
+
+ Best Solution in try 3 is 153138
+ Best Solution was found after 6 iterations
+
+try 3, Best 153138, found at iteration 6, found at time 50.435214
+best 154126, iteration: 1, time 16.31
+best 153757, iteration: 2, time 23.31
+best 153649, iteration: 5, time 44.13
+best 153497, iteration: 6, time 51.03
+best 153144, iteration: 10, time 78.27
+
+ Best Solution in try 4 is 153144
+ Best Solution was found after 10 iterations
+
+try 4, Best 153144, found at iteration 10, found at time 78.253769
+best 153636, iteration: 1, time 15.47
+best 153587, iteration: 7, time 56.54
+best 153543, iteration: 15, time 109.04
+
+ Best Solution in try 5 is 153543
+ Best Solution was found after 15 iterations
+
+try 5, Best 153543, found at iteration 15, found at time 109.017202
+best 154737, iteration: 1, time 17.32
+best 153918, iteration: 2, time 24.23
+best 153822, iteration: 4, time 37.91
+best 153139, iteration: 7, time 58.18
+
+ Best Solution in try 6 is 153139
+ Best Solution was found after 7 iterations
+
+try 6, Best 153139, found at iteration 7, found at time 58.155828
+best 154202, iteration: 1, time 17.28
+best 154171, iteration: 2, time 24.18
+best 153541, iteration: 4, time 37.89
+best 153525, iteration: 8, time 64.93
+best 153369, iteration: 10, time 78.19
+best 152628, iteration: 15, time 110.60
+
+ Best Solution in try 7 is 152628
+ Best Solution was found after 15 iterations
+
+try 7, Best 152628, found at iteration 15, found at time 110.576724
+best 153640, iteration: 1, time 17.17
+best 153167, iteration: 2, time 24.04
+best 153150, iteration: 5, time 44.43
+
+ Best Solution in try 8 is 153150
+ Best Solution was found after 5 iterations
+
+try 8, Best 153150, found at iteration 5, found at time 44.407589
+best 154236, iteration: 1, time 17.08
+best 153511, iteration: 3, time 30.74
+best 153197, iteration: 7, time 57.87
+best 152914, iteration: 10, time 77.86
+
+ Best Solution in try 9 is 152914
+ Best Solution was found after 10 iterations
+
+try 9, Best 152914, found at iteration 10, found at time 77.838471
+ t_avgbest = 72.704987
+ t_avgtotal = 120.379625
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597743435
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597743435
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8385920000 seconds
+best 153631, iteration: 1, time 18.45
+best 153443, iteration: 3, time 32.27
+best 153280, iteration: 9, time 72.89
+best 152752, iteration: 14, time 105.70
+
+ Best Solution in try 0 is 152752
+ Best Solution was found after 14 iterations
+
+try 0, Best 152752, found at iteration 14, found at time 105.683174
+best 153171, iteration: 1, time 16.55
+best 153126, iteration: 7, time 57.50
+best 153090, iteration: 8, time 64.20
+
+ Best Solution in try 1 is 153090
+ Best Solution was found after 8 iterations
+
+try 1, Best 153090, found at iteration 8, found at time 64.180980
+best 153460, iteration: 1, time 16.52
+best 153413, iteration: 5, time 44.11
+best 153267, iteration: 12, time 90.77
+best 153129, iteration: 16, time 116.71
+
+ Best Solution in try 2 is 153129
+ Best Solution was found after 16 iterations
+
+try 2, Best 153129, found at iteration 16, found at time 116.689551
+best 153635, iteration: 1, time 17.26
+best 153551, iteration: 4, time 37.89
+best 153347, iteration: 9, time 71.84
+best 153127, iteration: 11, time 85.08
+
+ Best Solution in try 3 is 153127
+ Best Solution was found after 11 iterations
+
+try 3, Best 153127, found at iteration 11, found at time 85.060368
+best 154573, iteration: 1, time 16.86
+best 153821, iteration: 2, time 23.79
+best 153745, iteration: 5, time 44.18
+best 153662, iteration: 12, time 90.50
+best 153359, iteration: 13, time 96.98
+best 153247, iteration: 16, time 116.29
+
+ Best Solution in try 4 is 153247
+ Best Solution was found after 16 iterations
+
+try 4, Best 153247, found at iteration 16, found at time 116.273382
+best 153974, iteration: 1, time 16.82
+best 153816, iteration: 3, time 30.56
+best 153336, iteration: 4, time 37.46
+best 153155, iteration: 16, time 116.36
+
+ Best Solution in try 5 is 153155
+ Best Solution was found after 16 iterations
+
+try 5, Best 153155, found at iteration 16, found at time 116.338956
+best 153617, iteration: 1, time 16.76
+best 153249, iteration: 13, time 97.00
+
+ Best Solution in try 6 is 153249
+ Best Solution was found after 13 iterations
+
+try 6, Best 153249, found at iteration 13, found at time 96.977700
+best 153769, iteration: 1, time 17.87
+best 153402, iteration: 3, time 31.51
+best 153005, iteration: 5, time 45.11
+best 152901, iteration: 9, time 71.92
+
+ Best Solution in try 7 is 152901
+ Best Solution was found after 9 iterations
+
+try 7, Best 152901, found at iteration 9, found at time 71.903131
+best 154648, iteration: 1, time 16.86
+best 153202, iteration: 2, time 23.72
+
+ Best Solution in try 8 is 153202
+ Best Solution was found after 2 iterations
+
+try 8, Best 153202, found at iteration 2, found at time 23.704367
+best 153719, iteration: 1, time 17.07
+best 153681, iteration: 3, time 30.90
+best 152970, iteration: 8, time 64.88
+
+ Best Solution in try 9 is 152970
+ Best Solution was found after 8 iterations
+
+try 9, Best 152970, found at iteration 8, found at time 64.858882
+ t_avgbest = 86.167049
+ t_avgtotal = 120.435529
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597745876
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597745876
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8378830000 seconds
+best 153614, iteration: 1, time 18.59
+best 153552, iteration: 14, time 104.69
+
+ Best Solution in try 0 is 153552
+ Best Solution was found after 14 iterations
+
+try 0, Best 153552, found at iteration 14, found at time 104.668125
+best 153992, iteration: 1, time 16.72
+best 153426, iteration: 4, time 37.10
+best 152833, iteration: 9, time 70.52
+
+ Best Solution in try 1 is 152833
+ Best Solution was found after 9 iterations
+
+try 1, Best 152833, found at iteration 9, found at time 70.495187
+best 153679, iteration: 1, time 16.19
+best 153463, iteration: 2, time 23.09
+best 153059, iteration: 6, time 50.19
+best 152808, iteration: 14, time 102.48
+
+ Best Solution in try 2 is 152808
+ Best Solution was found after 14 iterations
+
+try 2, Best 152808, found at iteration 14, found at time 102.461146
+best 153681, iteration: 1, time 16.09
+best 153227, iteration: 11, time 82.91
+best 153006, iteration: 17, time 120.15
+
+ Best Solution in try 3 is 153006
+ Best Solution was found after 17 iterations
+
+try 3, Best 153006, found at iteration 17, found at time 120.124052
+best 154018, iteration: 1, time 15.93
+best 153714, iteration: 2, time 22.74
+best 153556, iteration: 7, time 56.55
+best 153210, iteration: 12, time 89.33
+
+ Best Solution in try 4 is 153210
+ Best Solution was found after 12 iterations
+
+try 4, Best 153210, found at iteration 12, found at time 89.310296
+best 154228, iteration: 1, time 16.26
+best 153922, iteration: 2, time 23.23
+best 153658, iteration: 4, time 36.98
+best 153546, iteration: 9, time 70.76
+best 153271, iteration: 10, time 77.40
+best 153140, iteration: 11, time 84.05
+best 152939, iteration: 16, time 116.39
+
+ Best Solution in try 5 is 152939
+ Best Solution was found after 16 iterations
+
+try 5, Best 152939, found at iteration 16, found at time 116.368102
+best 153709, iteration: 1, time 15.53
+best 152898, iteration: 2, time 22.44
+
+ Best Solution in try 6 is 152898
+ Best Solution was found after 2 iterations
+
+try 6, Best 152898, found at iteration 2, found at time 22.420228
+best 154418, iteration: 1, time 15.39
+best 153615, iteration: 2, time 22.38
+best 153478, iteration: 3, time 29.30
+best 152998, iteration: 6, time 49.75
+
+ Best Solution in try 7 is 152998
+ Best Solution was found after 6 iterations
+
+try 7, Best 152998, found at iteration 6, found at time 49.725031
+best 153716, iteration: 1, time 15.33
+best 153655, iteration: 5, time 42.93
+best 153587, iteration: 9, time 69.71
+best 153447, iteration: 10, time 76.32
+best 153164, iteration: 11, time 82.92
+best 153041, iteration: 17, time 120.16
+
+ Best Solution in try 8 is 153041
+ Best Solution was found after 17 iterations
+
+try 8, Best 153041, found at iteration 17, found at time 120.142875
+best 153872, iteration: 1, time 15.17
+best 153839, iteration: 9, time 69.51
+best 153499, iteration: 10, time 76.10
+best 153480, iteration: 11, time 82.73
+best 152768, iteration: 13, time 95.76
+
+ Best Solution in try 9 is 152768
+ Best Solution was found after 13 iterations
+
+try 9, Best 152768, found at iteration 13, found at time 95.742904
+ t_avgbest = 89.145795
+ t_avgtotal = 120.454798
+
+ACO algorithms for the TSP, v1.03
+	 OPTIONS:
+  -t  --time with argument "120.000"
+	Note: number or trials is set to default 10
+	Note: maximum number tours is set to default 0
+	Note: a seed was generated as 1597749540
+	Note: optimal solution value is set to default 1
+  -i  --tsplibfile with argument "data/br5851.tsp"
+mmas_flag is set to 1, run MAX-MIN Ant System
+	Note: local search flag is set to default 3 (3-opt)
+	Note: number or ants is set to default 25
+	Note: number of nearest neighbours in tour construction is set to default 20
+  -a  --alpha with argument "0.500000"
+  -b  --beta with argument "3.000000"
+  -e  --rho with argument "0.250000"
+	Note: q_0 is set to default 0
+	Note: number of elitist ants is set to default n
+	Note: number of ranks is set to default 0
+	Note: number nearest neighbours in local search is set to default 20
+	Note: dlb flag is set to default 1 (use don't look bits)
+Non-option arguments:
+
+reading tsp-file data/br5851.tsp ... 
+
+GEO
+GEO
+calculating distance matrix ..
+
+ .. done
+
+Parameter-settings: 
+
+max_tries		 10
+max_tours		 0
+max_time		 120.00
+seed		 1597749540
+optimum			 1
+n_ants			 25
+nn_ants			 20
+alpha			 0.50
+beta			 3.00
+rho			 0.25
+q_0			 0.00
+elitist_ants		 0
+ras_ranks		 0
+ls_flag			 3
+nn_ls			 20
+dlb_flag		 1
+as_flag			 0
+eas_flag		 0
+ras_flag		 0
+mmas_flag		 1
+bwas_flag		 0
+acs_flag		 0
+
+allocate ants' memory ..
+
+ .. done
+Initialization took 12.8502080000 seconds
+best 153459, iteration: 1, time 18.96
+best 153301, iteration: 9, time 72.68
+best 153036, iteration: 15, time 111.72
+
+ Best Solution in try 0 is 153036
+ Best Solution was found after 15 iterations
+
+try 0, Best 153036, found at iteration 15, found at time 111.698466
+best 154227, iteration: 1, time 17.35
+best 154038, iteration: 2, time 24.21
+best 153863, iteration: 4, time 37.82
+best 153816, iteration: 7, time 57.93
+best 153764, iteration: 8, time 64.63
+best 153745, iteration: 11, time 84.38
+best 153375, iteration: 16, time 116.68
+best 153092, iteration: 17, time 120.12
+
+ Best Solution in try 1 is 153092
+ Best Solution was found after 17 iterations
+
+try 1, Best 153092, found at iteration 17, found at time 120.096865
+best 153373, iteration: 1, time 17.15
+best 153218, iteration: 2, time 23.93
+best 152986, iteration: 13, time 97.16
+
+ Best Solution in try 2 is 152986
+ Best Solution was found after 13 iterations
+
+try 2, Best 152986, found at iteration 13, found at time 97.144236
+best 153435, iteration: 1, time 16.92
+best 153294, iteration: 7, time 57.41
+
+ Best Solution in try 3 is 153294
+ Best Solution was found after 7 iterations
+
+try 3, Best 153294, found at iteration 7, found at time 57.391164
+best 154412, iteration: 1, time 17.02
+best 153905, iteration: 2, time 23.81
+best 153037, iteration: 3, time 30.66
+
+ Best Solution in try 4 is 153037
+ Best Solution was found after 3 iterations
+
+try 4, Best 153037, found at iteration 3, found at time 30.643726
+best 153635, iteration: 1, time 16.85
+best 153612, iteration: 5, time 43.89
+best 153053, iteration: 8, time 63.83
+
+ Best Solution in try 5 is 153053
+ Best Solution was found after 8 iterations
+
+try 5, Best 153053, found at iteration 8, found at time 63.809218
+best 153815, iteration: 1, time 16.64
+best 153549, iteration: 3, time 30.33
+best 153467, iteration: 4, time 37.08
+best 153455, iteration: 6, time 50.49
+best 153446, iteration: 11, time 83.50
+best 153126, iteration: 14, time 102.75
+
+ Best Solution in try 6 is 153126
+ Best Solution was found after 14 iterations
+
+try 6, Best 153126, found at iteration 14, found at time 102.726491
+best 153400, iteration: 1, time 16.34
+best 153216, iteration: 16, time 115.07
+
+ Best Solution in try 7 is 153216
+ Best Solution was found after 16 iterations
+
+try 7, Best 153216, found at iteration 16, found at time 115.044954
+best 153931, iteration: 1, time 16.02
+best 153401, iteration: 3, time 29.62
+best 153238, iteration: 15, time 108.33
+
+ Best Solution in try 8 is 153238
+ Best Solution was found after 15 iterations
+
+try 8, Best 153238, found at iteration 15, found at time 108.304767
+best 153496, iteration: 1, time 16.03
+best 153432, iteration: 9, time 69.76
+best 153038, iteration: 10, time 76.36
+
+ Best Solution in try 9 is 153038
+ Best Solution was found after 10 iterations
+
+try 9, Best 153038, found at iteration 10, found at time 76.342911
+ t_avgbest = 88.320280
+ t_avgtotal = 120.424066

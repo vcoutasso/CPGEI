@@ -1,0 +1,1001 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for grffile with XeLaTeX
+    \def\Gread@@xetex#1{%
+      \IfFileExists{"\Gin@base".bb}%
+      {\Gread@eps{\Gin@base.bb}}%
+      {\Gread@@xetex@aux#1}%
+    }
+    \makeatother
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{Atividade 1}
+	\author{Vinícius Couto Tasso}    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        \ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{problema-de-otimizauxe7uxe3o-do-transporte}{%
+\section{Problema de Otimização do
+Transporte}\label{problema-de-otimizauxe7uxe3o-do-transporte}}
+
+Esse exercício utiliza dados da empresa de transporte fictícia
+\emph{``Trans-cegonha''} para resolver um problema de otimização. O
+objetivo é encontrar a disposição ideal da frota de veículos da empresa,
+de maneira a maximizar o lucro, satisfazendo todas as restrições do
+problema.
+
+O problema é apresentado com mais detalhes \href{transporte4.pdf}{aqui}.
+
+    \hypertarget{modelagem}{%
+\subsection{Modelagem}\label{modelagem}}
+
+O processo de modelagem do problema é fundamental para a utilização de
+Algoritmos Genéticos, e uma boa modelagem certamente influenciará o
+resultado final, seja em sua qualidade ou no tempo necessário para obter
+uma solução satisfatória.
+
+Para isso, precisa-se determinar o mapeamento ``genótipo x fenótipo'',
+bem como a função \emph{fitness}, responsável por indicar
+quantitativamente a qualidade de um determinado indivíduo.
+
+    \hypertarget{cromossomo}{%
+\subsubsection{Cromossomo}\label{cromossomo}}
+
+Cromossomo é a representação do problema no formato de um indivíduo que
+equivale à uma possível solução. Para este problema, escolheu-se usar 27
+genes diferentes, cada um representando uma determinada rota e a
+quantidade de caminhões que foi ali alocada. O motivo dessa escolha foi
+o fato de que, apesar da quantidade de variáveis e restrições do
+problema, o resultado final é um reflexo direto da disposição inicial da
+frota de veículos.
+
+Assim, cada indivíduo apresenta a distribuição da frota entre todas as
+possíveis rotas. A partir dessa informação, pode-se calcular todas as
+variáveis e considerar todas as restrições para avaliar o candidato à
+solução.
+
+A representação dos genes é binária, e cada gene é representado por uma
+quantidade de bits diferente. A motivação dessa escolha foi restringir o
+espaço de busca, ao custo de adicionar um pouco de complexidade na
+representação. O valor máximo de cada gene foi calculado utilizando uma
+frota imaginária sem restrição de tamanho. Assim, chegou-se à quantidade
+ideal de caminhões por rota para atender a demanda.
+
+    \hypertarget{funuxe7uxe3o-objetivo}{%
+\subsubsection{Função objetivo}\label{funuxe7uxe3o-objetivo}}
+
+Como mencionado anteriormente, o exercício se trata de um problema de
+otimização. Mais especificamente, o objetivo é maximizar o lucro \(L\)
+da empresa fictícia.
+
+Cada caminhão pode operar por, no máximo, 24h por dia, ao longo de 30
+dias do mês.
+
+O lucro é obtido por:
+
+\[L = R - C\]
+
+A remuneração total \(R\) se dá pelo somatório da remuneração indivídual
+mensal \(r\) de cada um dos 68 caminhões que constituem a frota de
+veículos:
+
+\[R = \sum_{i=1}^{68} r_i\]
+
+A remuneração individual de cada veículo leva em consideração a
+quantidade de viagens \(n\) feitas no mês e o pagamento \(p\) (tabelado)
+de cada uma delas:
+
+\[r_i = n_i \cdot p_i\]
+
+A quantidade de viagens (ida e volta) pode depender do tamanho da
+demanda, limitando as viagens ao mês (introduzindo um tempo de
+ociosidade ao veículo durante o mês). Portanto, é preciso considerar o
+máximo de viagens que o caminhão pode fazer (com carregamento) \(m\), e
+obter o minímo entre esse valor e o máximo de viagens de duração \(t\)
+possível no mês:
+
+\[n_i = min\bigg\{m_i, floor\bigg(\frac{30 \cdot 24}{t_i}\bigg)\bigg\}\]
+
+A distância entre cada destino e origem possível é tabelada e fornecida,
+e o tempo de duração de cada viagem precisa levar em consideração o
+\emph{overhead} do tempo de carga e descarga:
+
+\[t_i = ceil\bigg(\frac{d_i}{55}\bigg) + ceil\bigg(\frac{d_i}{75}\bigg) + 4\]
+onde 55 é a velocidade média dos veículos (em km/h) na ida, e 75 na
+volta.
+
+O custo total \(C\) se dá pelo somatório do custo indivídual mensal
+\(c\) de cada caminhão:
+
+\[C = \sum_{i=1}^{68} c_i\]
+
+O custo individual mensal de cada caminhão é obtido pelo produto entre a
+quantidade de viagens \(n\) e o custo tabelado \(\sigma\) de cada
+viagem:
+
+\[c_i = n_i \cdot \sigma_i \]
+
+A função objetivo nada mais é que o lucro normalizado para o intervalo
+\([0,1]\). Para isso, usou-se como valor teórico máximo o lucro para a
+frota teórica (mencionada anteriormente) de 103 caminhões:
+
+\[\Omega = \frac{R - C}{12,532,255}\]
+
+    \hypertarget{restriuxe7uxf5es}{%
+\subsubsection{Restrições}\label{restriuxe7uxf5es}}
+
+O problema conta com um número de restrições que devem ser levadas em
+consideração a fim de obter uma solução válida. São elas:
+
+\begin{itemize}
+\tightlist
+\item
+  Cada caminhão \textbf{sempre} transporta exatamente 11 veículos em
+  cada viagem. Se esse requisito não for satisfeito, o caminhão não irá
+  trafegar. (Essa restrição é aplicada no cálculo de viagens que o
+  caminhão fará no mês)
+\item
+  A frota de veículos é composta por 68 caminhões. Não se pode utilizar
+  mais caminhões do que há disponível.
+\item
+  Cada base de origem deve atender, pelo menos, dois destinos
+  diferentes.
+\item
+  A distribuição da frota deve atender, no mínimo, 72\% da demanda de
+  transporte.
+\end{itemize}
+
+Para quantificar e penalizar os indíviduos que não respeitarem essas
+restrições, as seguintes penalidades são aplicadas:
+
+\[\hat h_1 = max\{0, \frac{Q - 68}{63}\}\] onde 63 é o valor máximo de
+caminhões que podem ser alocados (na representação binária) além do
+limite permitido de 68, e \(Q\) é a quantidade de caminhões utilizada.
+
+\[\hat h_2 = max\{0, \frac{7 - B}{7}\}\] onde \(B\) é a quantidade de
+bases que atendem o requisito de fazerem entregas à, pelo menos, dois
+destinos diferentes.
+
+\[\hat h_3 = max\{0, \frac{72 - D}{72}\}\] onde \(D\) é a porcentagem da
+demanda total atendida.
+
+Todas as funções de restrição podem assumir somente valores dentro do
+intervalo \([0, 1]\).
+
+    \hypertarget{funuxe7uxe3o-fitness}{%
+\subsubsection{\texorpdfstring{Função
+\emph{fitness}}{Função fitness}}\label{funuxe7uxe3o-fitness}}
+
+A função \emph{fitness}, utilizada como métrica para quantificar a
+qualidade de uma solução, combina as funções objetivo e de penalidade
+apresentadas acima. Dessa forma, temos:
+
+\[fitness = \frac{R - C}{12,532,255} - \frac{1}{1.5}\sum_{i=1}^{3}\hat h_i\]
+
+O somatório das penalidades foi dividido por 1.5 (ao invés de 3) para
+aumentar o peso das penalidades durante o treinamento, pois nenhuma pode
+ser desrespeitada. No caso de a penalidade ser maior que o resultado da
+função \emph{fitness}, atribui-se o valor 0 para evitar valores de \emph{fitness} negativos.
+
+    \hypertarget{implementauxe7uxe3o}{%
+\subsection{Implementação e Resultados}\label{implementauxe7uxe3o}}
+
+A linguagem escolhida para a abordagem do problema foi Python, fazendo
+uso da implementação de Algoritmos Genéticos da biblioteca Inspyred.
+
+Os dados de entrada foram fornecidos no formato de uma planilha.  A planilha foi lida e filtrada para obter os dados necessários para o experimento.
+\begin{comment}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+\PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+\PY{k+kn}{import} \PY{n+nn}{random}
+\PY{k+kn}{import} \PY{n+nn}{csv}
+
+\PY{k+kn}{import} \PY{n+nn}{inspyred}
+\PY{k+kn}{from} \PY{n+nn}{inspyred}\PY{n+nn}{.}\PY{n+nn}{ec} \PY{k+kn}{import} \PY{n}{terminators}\PY{p}{,} \PY{n}{selectors}\PY{p}{,} \PY{n}{observers}\PY{p}{,} \PY{n}{replacers}
+
+\PY{k+kn}{from} \PY{n+nn}{time} \PY{k+kn}{import} \PY{n}{time}
+
+\PY{c+c1}{\PYZsh{} Read spreadsheet with data}
+\PY{n}{sheet} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{planilha\PYZhy{}transporte4.xls}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{sheet\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exercício com AG\PYZhy{}2020}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Extração dos dados (matrizes) relevantes e armazenamento em objetos para
+fácil manipulação. As matrizes apresentadas a seguir trazem as bases de
+origem nas linhas, e as cidades de destino nas colunas.
+
+Matriz de demandas:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Filter spreadsheet to obtain the demand matrix}
+\PY{n}{demand} \PY{o}{=} \PY{n}{sheet}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{11}\PY{p}{]}
+\PY{n}{demand} \PY{o}{=} \PY{n}{demand}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{n}{demand}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{demand}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
+\PY{n}{demand}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<pandas.io.formats.style.Styler at 0x7fe6e81cf670>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Matriz de distâncias:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Filter spreadsheet to obtain the distance matrix}
+\PY{n}{dist} \PY{o}{=} \PY{n}{sheet}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{14}\PY{p}{:}\PY{l+m+mi}{22}\PY{p}{]}
+\PY{n}{dist} \PY{o}{=} \PY{n}{dist}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{n}{dist}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{dist}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
+\PY{n}{dist}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<pandas.io.formats.style.Styler at 0x7fe6abfd4520>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Matriz de custos:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Filter spreadsheet to obtain the cost matrix}
+\PY{n}{cost} \PY{o}{=} \PY{n}{sheet}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{15}\PY{p}{:}\PY{l+m+mi}{23}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{11}\PY{p}{]}
+\PY{n}{cost} \PY{o}{=} \PY{n}{cost}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{n}{cost}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{cost}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
+\PY{n}{cost}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<pandas.io.formats.style.Styler at 0x7fe6abfd67c0>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Matriz de remuneração:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Filter spreadsheet to obtain the pay matrix}
+\PY{n}{pay} \PY{o}{=} \PY{n}{sheet}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{15}\PY{p}{:}\PY{l+m+mi}{23}\PY{p}{,} \PY{l+m+mi}{14}\PY{p}{:}\PY{l+m+mi}{22}\PY{p}{]}
+\PY{n}{pay} \PY{o}{=} \PY{n}{pay}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{n}{pay}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{pay}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}
+\PY{n}{pay}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<pandas.io.formats.style.Styler at 0x7fe6abfd49d0>
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Matriz de lucro por viagem completa:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{profit} \PY{o}{=} \PY{n}{pay} \PY{o}{\PYZhy{}} \PY{n}{cost}
+\PY{n}{profit}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<pandas.io.formats.style.Styler at 0x7fe6abfd4220>
+\end{Verbatim}
+\end{tcolorbox}
+\end{comment}
+        
+    Para definir o tamanho ideal da frota, utilizou-se as matrizes extraídas, conforme comentado acima,
+para calcular a quantidade caminhões necessária para melhor atender a
+demanda. O cálculo levou em conta a quantidade ideal de caminhões para \textbf{atender a demanda}, e não necessariamente maximizar o lucro.
+\begin{comment}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Time per complete trip per route}
+\PY{n}{t} \PY{o}{=} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ceil}\PY{p}{(}\PY{p}{(}\PY{n}{dist} \PY{o}{/} \PY{l+m+mi}{55}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{ceil}\PY{p}{(}\PY{p}{(}\PY{n}{dist} \PY{o}{/} \PY{l+m+mi}{75}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+m+mi}{4}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Maximum number of monthly trips per route considering only time limits}
+\PY{n}{max\PYZus{}t} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{floor}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{30} \PY{o}{*} \PY{l+m+mi}{24}\PY{p}{)} \PY{o}{/} \PY{n}{t}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Maximum number of monthly trips per route considering only demand limits}
+\PY{n}{max\PYZus{}d} \PY{o}{=} \PY{n}{demand} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{11}
+\PY{c+c1}{\PYZsh{} Qty of allowed trips considering demand AND time limits. This is the real value to be used}
+\PY{n}{max\PYZus{}r} \PY{o}{=} \PY{n}{max\PYZus{}d}\PY{o}{.}\PY{n}{where}\PY{p}{(}\PY{n}{max\PYZus{}d} \PY{o}{\PYZlt{}} \PY{n}{max\PYZus{}t}\PY{p}{,} \PY{n}{max\PYZus{}t}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Number of vehicles needed to satisfy as much of the demand as possible}
+\PY{n}{ideal} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{ceil}\PY{p}{(}\PY{p}{(}\PY{n}{demand}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{11}\PY{p}{)} \PY{o}{/} \PY{n}{max\PYZus{}r}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Disposição ideal calculada:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{display}\PY{p}{(}\PY{n}{ideal}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Used later to obtain the DataFrame representation of an individual}
+\PY{n}{mask} \PY{o}{=} \PY{n}{ideal} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tamanho da frota calculada: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ideal}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Disposição ideal calculada:
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+<pandas.io.formats.style.Styler at 0x7fe6abf9d6a0>
+    \end{verbatim}
+\end{comment}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Tamanho da frota calculada:  103
+    \end{Verbatim}
+
+    Para poder diferenciar os genes dentro da representação binária,
+precisamos saber onde cada um começa e termina. Isso é um reflexo da escolha de não dividir o cromossomo em genes de tamanho igual.
+\begin{comment}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{bin\PYZus{}rep\PYZus{}idx}\PY{p}{(}\PY{n}{values}\PY{p}{)}\PY{p}{:}
+    \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{n}{indices} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{k}{for} \PY{n}{v} \PY{o+ow}{in} \PY{n}{values}\PY{p}{:}
+        \PY{n}{l} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{bin}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{2}
+        \PY{n}{indices}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{l} \PY{o}{+} \PY{n}{i}\PY{p}{)}
+        \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{+} \PY{n}{l}
+    
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bits necessários para a representação binária:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{indices}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        
+    \PY{k}{return} \PY{n}{indices}\PY{p}{[}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{indices}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Indices of genes within the binary representation of an individual}
+\PY{n}{ideal\PYZus{}int} \PY{o}{=} \PY{n}{ideal}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+\PY{n}{idx}\PY{p}{,} \PY{n}{n\PYZus{}bits} \PY{o}{=} \PY{n}{bin\PYZus{}rep\PYZus{}idx}\PY{p}{(}\PY{n}{ideal\PYZus{}int}\PY{o}{.}\PY{n}{to\PYZus{}numpy}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{n}{ideal\PYZus{}int}\PY{o}{.}\PY{n}{to\PYZus{}numpy}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+\end{comment}
+    \begin{Verbatim}[commandchars=\\\{\}]
+Bits necessários para a representação binária: 63
+    \end{Verbatim}
+\begin{comment}
+    A partir daqui, começa a ser desenvolvido o código necessário para rodar
+o Algoritmo Genético.
+
+Primeiro, definimos a função responsável por gerar indivíduos
+aleatóriamente:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Generates random individuals}
+\PY{n+nd}{@inspyred}\PY{o}{.}\PY{n}{ec}\PY{o}{.}\PY{n}{generators}\PY{o}{.}\PY{n}{diversify}
+\PY{k}{def} \PY{n+nf}{generate}\PY{p}{(}\PY{n}{random}\PY{p}{,} \PY{n}{args}\PY{p}{)}\PY{p}{:}
+    \PY{n}{n\PYZus{}bits} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}bits}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    
+    \PY{k}{return} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{n\PYZus{}bits}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Aqui nós temos a função responsável por calcular o fitness de um
+determinado indivíduo:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Calculates fitness in order to evaluate a solution candidate}
+\PY{n+nd}{@inspyred}\PY{o}{.}\PY{n}{ec}\PY{o}{.}\PY{n}{evaluators}\PY{o}{.}\PY{n}{evaluator}
+\PY{k}{def} \PY{n+nf}{evaluate}\PY{p}{(}\PY{n}{candidate}\PY{p}{,} \PY{n}{args}\PY{p}{)}\PY{p}{:}
+    \PY{n}{max\PYZus{}t} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{max\PYZus{}d} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{profit} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{profit}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{demand} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{demand}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{mask} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mask}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{idx} \PY{o}{=} \PY{n}{args}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{idx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    
+    \PY{n}{df} \PY{o}{=} \PY{n}{df\PYZus{}rep}\PY{p}{(}\PY{n}{candidate}\PY{p}{,} \PY{n}{mask}\PY{p}{,} \PY{n}{idx}\PY{p}{)}
+    \PY{n}{total} \PY{o}{=} \PY{p}{(}\PY{n}{df} \PY{o}{*} \PY{n}{max\PYZus{}t}\PY{p}{)}
+    \PY{n}{total} \PY{o}{=} \PY{n}{total}\PY{o}{.}\PY{n}{where}\PY{p}{(}\PY{n}{total} \PY{o}{\PYZlt{}} \PY{n}{max\PYZus{}d}\PY{p}{,} \PY{n}{max\PYZus{}d}\PY{p}{)}
+    
+    \PY{n}{obj} \PY{o}{=} \PY{p}{(}\PY{n}{total} \PY{o}{*} \PY{n}{profit}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+    \PY{n}{obj} \PY{o}{=} \PY{n}{obj} \PY{o}{/} \PY{l+m+mi}{12532255}
+    
+    \PY{c+c1}{\PYZsh{} Return calculated fitness. If the penalty is higher than the obj value, we set the fitness to zero in order to avoid negative values}
+    \PY{k}{return} \PY{n+nb}{max}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{obj} \PY{o}{\PYZhy{}} \PY{n}{penalty}\PY{p}{(}\PY{n}{df}\PY{p}{,} \PY{n}{demand}\PY{p}{,} \PY{n}{total}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Para melhor organização do código, a penalidade é calculada na função a
+seguir:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Calculates and returns penalties}
+\PY{k}{def} \PY{n+nf}{penalty}\PY{p}{(}\PY{n}{candidate\PYZus{}df}\PY{p}{,} \PY{n}{demand}\PY{p}{,} \PY{n}{total}\PY{p}{)}\PY{p}{:}
+    \PY{n}{q} \PY{o}{=} \PY{n}{candidate\PYZus{}df}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+    \PY{n}{h1} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{(}\PY{n}{q} \PY{o}{\PYZhy{}} \PY{l+m+mi}{68}\PY{p}{)} \PY{o}{/} \PY{l+m+mi}{63}\PY{p}{)}
+    
+    \PY{n}{b} \PY{o}{=} \PY{n}{candidate\PYZus{}df}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+    \PY{n}{h2} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{7} \PY{o}{\PYZhy{}} \PY{n}{b}\PY{p}{[}\PY{n}{b} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{l+m+mi}{7}\PY{p}{)}
+    
+    \PY{n}{d} \PY{o}{=} \PY{n}{total}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{100} \PY{o}{/} \PY{p}{(}\PY{n}{demand} \PY{o}{/} \PY{l+m+mi}{11}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+    \PY{n}{h3} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{72} \PY{o}{\PYZhy{}} \PY{n}{d}\PY{p}{)} \PY{o}{/} \PY{l+m+mi}{72}\PY{p}{)} 
+    
+    \PY{k}{return} \PY{p}{(}\PY{n}{h1} \PY{o}{+} \PY{n}{h2} \PY{o}{+} \PY{n}{h3}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{1.5}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Essa função é responsável por transformar a representação binária do
+indivíduo em um objeto \texttt{DataFrame} mais fácil de ser trabalhado e
+interpretado.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} This function decodes the binary representation of a given individual and returns a DataFrame}
+\PY{k}{def} \PY{n+nf}{df\PYZus{}rep}\PY{p}{(}\PY{n}{candidate}\PY{p}{,} \PY{n}{mask}\PY{p}{,} \PY{n}{idx}\PY{p}{)}\PY{p}{:}
+    \PY{n}{genes} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{n}{candidate}\PY{p}{,} \PY{n}{idx}\PY{p}{)}
+    \PY{n}{int\PYZus{}rep} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    
+    \PY{k}{for} \PY{n}{g} \PY{o+ow}{in} \PY{n}{genes}\PY{p}{:}
+        \PY{n}{int\PYZus{}rep}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{p}{[}\PY{n+nb}{str}\PY{p}{(}\PY{n}{bit}\PY{p}{)} \PY{k}{for} \PY{n}{bit} \PY{o+ow}{in} \PY{n}{g}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+    
+    \PY{n}{df} \PY{o}{=} \PY{n}{ideal}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{nan}\PY{p}{)}
+    \PY{n}{df}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{n}{mask}\PY{p}{]} \PY{o}{=} \PY{n}{int\PYZus{}rep}
+    
+    \PY{k}{return} \PY{n}{df}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \texttt{plot()} recebe o índice de um arquivo de log e plota o gráfico
+de fitness para o melhor e o pior indíviduo de cada geração, bem como a
+média da métrica.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot fitness graph}
+\PY{k}{def} \PY{n+nf}{plot}\PY{p}{(}\PY{n}{index}\PY{p}{)}\PY{p}{:}
+    \PY{n}{csvfile} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{inspyred\PYZhy{}statistics\PYZhy{}file\PYZhy{}}\PY{l+s+si}{\PYZob{}}\PY{n}{index}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{reader} \PY{o}{=} \PY{n}{csv}\PY{o}{.}\PY{n}{reader}\PY{p}{(}\PY{n}{csvfile}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{n}{best\PYZus{}stats} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{n}{worst\PYZus{}stats} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{n}{avg\PYZus{}stats} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{n}{generations} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{reader}\PY{p}{:}
+        \PY{n}{generations}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n}{worst\PYZus{}stats}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n}{best\PYZus{}stats}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n}{avg\PYZus{}stats}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{float}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+
+    \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{dpi}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{generations}\PY{p}{,} \PY{n}{best\PYZus{}stats}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{generations}\PY{p}{,} \PY{n}{avg\PYZus{}stats}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{generations}\PY{p}{,} \PY{n}{worst\PYZus{}stats}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{worst}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Generation}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitness}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+
+    \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Aqui o objeto que representa o AG é criado e todos seus parâmetros
+configurados. A função \texttt{main()} retorna o indivíduo com maior
+valor de \emph{fitness} depois que o processo de evolução chega ao fim.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Genetic Algorithm declaration}
+\PY{k}{def} \PY{n+nf}{main}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+    \PY{n}{rand} \PY{o}{=} \PY{n}{random}\PY{o}{.}\PY{n}{Random}\PY{p}{(}\PY{p}{)}
+    \PY{n}{rand}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{time}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+    
+    \PY{n}{f\PYZus{}stats} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{inspyred\PYZhy{}statistics\PYZhy{}file\PYZhy{}}\PY{l+s+si}{\PYZob{}}\PY{n}{i}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{f\PYZus{}indv} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{inspyred\PYZhy{}individuals\PYZhy{}file\PYZhy{}}\PY{l+s+si}{\PYZob{}}\PY{n}{i}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    
+    \PY{n}{pop\PYZus{}size} \PY{o}{=} \PY{l+m+mi}{150}
+
+    \PY{n}{ga} \PY{o}{=} \PY{n}{inspyred}\PY{o}{.}\PY{n}{ec}\PY{o}{.}\PY{n}{GA}\PY{p}{(}\PY{n}{rand}\PY{p}{)}
+    \PY{n}{ga}\PY{o}{.}\PY{n}{observer} \PY{o}{=} \PY{n}{observers}\PY{o}{.}\PY{n}{file\PYZus{}observer}
+    \PY{n}{ga}\PY{o}{.}\PY{n}{terminator} \PY{o}{=} \PY{n}{terminators}\PY{o}{.}\PY{n}{generation\PYZus{}termination}
+    \PY{n}{ga}\PY{o}{.}\PY{n}{selector} \PY{o}{=} \PY{n}{selectors}\PY{o}{.}\PY{n}{tournament\PYZus{}selection}
+    \PY{n}{ga}\PY{o}{.}\PY{n}{replacer} \PY{o}{=} \PY{n}{replacers}\PY{o}{.}\PY{n}{generational\PYZus{}replacement} 
+
+    \PY{n}{final\PYZus{}pop} \PY{o}{=} \PY{n}{ga}\PY{o}{.}\PY{n}{evolve}\PY{p}{(}\PY{n}{generator}\PY{o}{=}\PY{n}{generate}\PY{p}{,}
+                          \PY{n}{evaluator}\PY{o}{=}\PY{n}{evaluate}\PY{p}{,}
+                          \PY{n}{statistics\PYZus{}file}\PY{o}{=}\PY{n}{f\PYZus{}stats}\PY{p}{,}
+                          \PY{n}{individuals\PYZus{}file}\PY{o}{=}\PY{n}{f\PYZus{}indv}\PY{p}{,}
+                          \PY{n}{tournament\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}
+                          \PY{n}{max\PYZus{}generations}\PY{o}{=}\PY{l+m+mi}{300}\PY{p}{,}
+                          \PY{n}{crossover\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}
+                          \PY{n}{mutation\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.02}\PY{p}{,}
+                          \PY{n}{num\PYZus{}crossover\PYZus{}points}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                          \PY{n}{pop\PYZus{}size}\PY{o}{=}\PY{n}{pop\PYZus{}size}\PY{p}{,}
+                          \PY{n}{num\PYZus{}elites}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}
+                          \PY{n}{n\PYZus{}bits}\PY{o}{=}\PY{n}{n\PYZus{}bits}\PY{p}{,}
+                          \PY{n}{max\PYZus{}t}\PY{o}{=}\PY{n}{max\PYZus{}t}\PY{p}{,}
+                          \PY{n}{max\PYZus{}d}\PY{o}{=}\PY{n}{max\PYZus{}d}\PY{p}{,}
+                          \PY{n}{profit}\PY{o}{=}\PY{n}{profit}\PY{p}{,}
+                          \PY{n}{demand}\PY{o}{=}\PY{n}{demand}\PY{p}{,}
+                          \PY{n}{mask}\PY{o}{=}\PY{n}{mask}\PY{p}{,}
+                          \PY{n}{idx}\PY{o}{=}\PY{n}{idx}\PY{p}{)}
+
+    \PY{k}{return} \PY{n+nb}{max}\PY{p}{(}\PY{n}{final\PYZus{}pop}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    Repete o processo de evolução \texttt{repeat} vezes e plota o gráfico da
+melhor rodada.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{repeat} \PY{o}{=} \PY{l+m+mi}{10}
+\PY{n}{best\PYZus{}l} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{repeat}\PY{p}{)}\PY{p}{:}
+    \PY{n}{best} \PY{o}{=} \PY{n}{main}\PY{p}{(}\PY{n}{i}\PY{p}{)}
+    \PY{n}{best\PYZus{}l}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{best}\PY{p}{)}
+        
+\PY{n}{best} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{best\PYZus{}l}\PY{p}{)}
+\PY{n}{index} \PY{o}{=} \PY{n}{best\PYZus{}l}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{best}\PY{p}{)}
+\PY{n}{plot}\PY{p}{(}\PY{n}{index}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+\end{comment}
+
+Com a implementação do algoritmo finalizada, realizou-se uma bateria de experimentos em busca de um valor ``bom o suficiente''. As informações a seguir se referem somente ao último experimento realizado, que obteve o melhor resultado.
+
+A definição do Algoritmo Genético utilizada tinha uma população de 150 indivíduos, gerados aleatoriamente  em um primeiro momento, com uma taxa de \emph{crossover} ( de 2 pontos) de 50\%, taxa de mutação de 2\% e elitismo para um indivíduo (o melhor indivíduo de cada geração obrigatoriamente fara parte da próxima população). 
+
+O AG foi rodado durante 300 gerações, quando o processo de evolução foi interrompido. Esse processo se repetiu 10 vezes, e usou-se o resultado da melhor rodada. O processo de evolução, por meio do monitoramento da curva de \emph{fitness} pode ser observado na figura a seguir.
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_36_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Interpretação do resultado final obtido:
+\begin{comment}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df} \PY{o}{=} \PY{n}{df\PYZus{}rep}\PY{p}{(}\PY{n}{best}\PY{o}{.}\PY{n}{candidate}\PY{p}{,} \PY{n}{mask}\PY{p}{,} \PY{n}{idx}\PY{p}{)}
+\PY{n}{total} \PY{o}{=} \PY{n}{df} \PY{o}{*} \PY{n}{max\PYZus{}t}
+\PY{n}{total} \PY{o}{=} \PY{n}{total}\PY{o}{.}\PY{n}{where}\PY{p}{(}\PY{n}{total} \PY{o}{\PYZlt{}} \PY{n}{max\PYZus{}d}\PY{p}{,} \PY{n}{max\PYZus{}d}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cobertura da demanda total: }\PY{l+s+se}{\PYZbs{}t}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}}\PY{n}{total}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{100} \PY{o}{/} \PY{p}{(}\PY{n}{demand} \PY{o}{/} \PY{l+m+mi}{11}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lucro total: }\PY{l+s+se}{\PYZbs{}t}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}}\PY{n+nb}{int}\PY{p}{(}\PY{p}{(}\PY{n}{total} \PY{o}{*} \PY{n}{profit}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{,}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Quantidade de caminhões utilizados: }\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}}\PY{n}{df}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fitness do candidato final: }\PY{l+s+se}{\PYZbs{}t}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+si}{\PYZob{}}\PY{n}{best}\PY{o}{.}\PY{n}{fitness}\PY{l+s+si}{:}\PY{l+s+s2}{.5f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Penalidade aplicada ao candidato final: }\PY{l+s+si}{\PYZob{}}\PY{n}{penalty}\PY{p}{(}\PY{n}{df}\PY{p}{,} \PY{n}{demand}\PY{p}{,} \PY{n}{total}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.5f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Disposição dos caminhões:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Veículos transportados por mês:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{display}\PY{p}{(}\PY{p}{(}\PY{n}{total} \PY{o}{*} \PY{l+m+mi}{11}\PY{p}{)}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.0f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Atendimento da demanda mensal:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{display}\PY{p}{(}\PY{p}{(}\PY{n}{total} \PY{o}{/} \PY{p}{(}\PY{n}{demand} \PY{o}{/} \PY{l+m+mi}{11}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{style}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}:.2\PYZpc{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}rep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+\end{comment}
+
+ \begin{Verbatim}[commandchars=\\\{\}]
+Cobertura da demanda total:             79.64\%
+Lucro total:                            11,552,371
+Quantidade de caminhões utilizados:     68
+Fitness do candidato final:             0.92181
+Penalidade aplicada ao candidato final: 0.00000
+
+    \end{Verbatim}
+
+\begin{comment}
+    \begin{verbatim}
+<pandas.io.formats.style.Styler at 0x7fe6bbdb8910>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Veículos transportados por mês:
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+<pandas.io.formats.style.Styler at 0x7fe6bbdb8820>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Atendimento da demanda mensal:
+    \end{Verbatim}
+
+    
+    \begin{verbatim}
+<pandas.io.formats.style.Styler at 0x7fe6abfd6c40>
+    \end{verbatim}
+
+    \end{comment}
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
